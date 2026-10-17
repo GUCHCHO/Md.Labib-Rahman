@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Synthetic revenue operations dashboard prototype for a business analysis and solution architecture portfolio case study.">
+<title>Revenue Operations | Portfolio Prototype</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#121a2d;--panel2:#172238;--line:#283751;--text:#e9effb;--muted:#93a4be;--accent:#6de0c0;--blue:#7cb8ff;--amber:#ffd27a;--red:#ff8c9b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% -10%,#1d3550 0,transparent 38%),var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent)}.wrap{max-width:1220px;margin:auto;padding:28px 22px 50px}.top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}.eyebrow{letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-size:11px;font-weight:800}.title{font-size:clamp(27px,4vw,40px);letter-spacing:-.04em;line-height:1.12;margin:8px 0}.sub{color:var(--muted);max-width:740px;margin:8px 0 0}.status{padding:8px 12px;border:1px solid #365e63;background:#122f36;border-radius:999px;color:#a7f0da;font-size:12px;font-weight:700}.controls{margin:27px 0 18px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}.controls label{color:var(--muted);font-size:12px}.controls select,.controls input{background:var(--panel);border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:9px;font:inherit;min-width:145px}.controls input{flex:1;min-width:200px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.card{background:linear-gradient(145deg,#162238,#11192b);border:1px solid var(--line);border-radius:15px;padding:18px;min-width:0}.metric-label{color:var(--muted);font-size:12px}.metric{font-size:clamp(21px,2.6vw,29px);font-weight:760;letter-spacing:-.035em;margin:10px 0 5px}.hint{color:var(--muted);font-size:11px}.positive{color:var(--accent)}.blue{color:var(--blue)}.amber{color:var(--amber)}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:27px 0 12px}.section-head h2{font-size:17px;margin:0;letter-spacing:-.02em}.section-head span{font-size:11px;color:var(--muted)}.middle{display:grid;grid-template-columns:1.15fr .85fr;gap:13px}.chartrow{display:grid;grid-template-columns:95px 1fr 100px;align-items:center;gap:10px;margin:15px 0;font-size:12px}.bar{height:9px;background:#25334a;border-radius:999px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#55bca8,#7cb8ff);border-radius:999px}.chartvalue{text-align:right;color:#cbd7eb;font-variant-numeric:tabular-nums}.insights{display:grid;gap:10px}.insight{display:flex;gap:11px;padding:12px;border-radius:10px;background:#0e1728;border:1px solid #263650}.dot{width:8px;height:8px;border-radius:50%;margin-top:6px;flex:none;background:var(--accent)}.insight b{display:block;font-size:12px}.insight p{margin:3px 0 0;color:var(--muted);font-size:12px}.tablewrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;background:#111a2c;min-width:760px}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid #22304a;font-size:12px}th{color:var(--muted);font-weight:650;background:#151f33}td.num{text-align:right;font-variant-numeric:tabular-nums}.pill{display:inline-block;border:1px solid #34506d;padding:4px 8px;border-radius:999px;color:#c8d9ed;font-size:10px}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0;color:var(--muted);font-size:11px}.callout{margin-top:18px;padding:13px 15px;border:1px solid #6a5835;background:#261f13;border-radius:12px;color:#f2dfb7;font-size:12px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.middle{grid-template-columns:1fr}}@media(max-width:480px){.wrap{padding:20px 14px}.grid{grid-template-columns:1fr 1fr}.card{padding:14px}.chartrow{grid-template-columns:72px 1fr 76px;gap:7px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div><div class="eyebrow">Solution & Product Strategy · Case Study</div><h1 class="title">Revenue Operations</h1><p class="sub">A decision-support prototype connecting sales pipeline visibility with operational follow-through. Designed to illustrate KPI governance, lead-to-cash workflows and scalable business systems.</p></div>
+    <div class="status">SYNTHETIC DATA · DEMO</div>
+  </header>
+  <section class="controls" aria-label="Dashboard filters">
+    <label for="segment">Segment</label><select id="segment"><option value="all">All segments</option></select>
+    <label for="source">Lead source</label><select id="source"><option value="all">All sources</option></select>
+    <input id="search" placeholder="Search opportunity ID or segment…" aria-label="Search opportunities">
+  </section>
+  <section class="grid" aria-label="Key performance indicators">
+    <article class="card"><div class="metric-label">Open pipeline</div><div class="metric" id="openValue">—</div><div class="hint">Unclosed opportunity amount</div></article>
+    <article class="card"><div class="metric-label">Weighted pipeline</div><div class="metric positive" id="weightedValue">—</div><div class="hint">Amount × probability; not guaranteed</div></article>
+    <article class="card"><div class="metric-label">Closed-won bookings</div><div class="metric blue" id="wonValue">—</div><div class="hint">Sample closed-won opportunity value</div></article>
+    <article class="card"><div class="metric-label">Win rate</div><div class="metric amber" id="winRate">—</div><div class="hint">Won ÷ all closed opportunities</div></article>
+  </section>
+  <div class="section-head"><h2>Pipeline composition</h2><span id="oppCount">—</span></div>
+  <section class="middle">
+    <article class="card"><div class="metric-label">Weighted pipeline by stage</div><div id="stageChart"></div></article>
+    <article class="card"><div class="metric-label">Signals for business review</div><div id="insights" class="insights"></div></article>
+  </section>
+  <div class="section-head"><h2>Opportunity register</h2><span>Filtered synthetic records</span></div>
+  <div class="tablewrap"><table><thead><tr><th>Opportunity</th><th>Segment</th><th>Source</th><th>Stage</th><th>Probability</th><th style="text-align:right">Value (BDT)</th><th style="text-align:right">Weighted (BDT)</th></tr></thead><tbody id="tableBody"></tbody></table></div>
+  <div class="foot"><span>Portfolio artifact by MD. Labib Rahman · Business Analysis / Solution Architecture</span><span><a href="../README.md">Read the complete case study</a></span></div>
+  <div class="callout"><b>Interpretation note:</b> all organizations and opportunity records are fictional. Pipeline and closed-won values in this demo are not recognized accounting revenue, collected cash, measured business impact, or a forecast for a real company.</div>
+</main>
+<script>
+const opportunities = [
+ {id:"OPP-001",segment:"Retail",source:"Referral",stage:"Qualified",value:900000,prob:20},
+ {id:"OPP-002",segment:"Distribution",source:"Inbound",stage:"Discovery",value:1200000,prob:35},
+ {id:"OPP-003",segment:"Furniture",source:"Referral",stage:"Proposal",value:750000,prob:60},
+ {id:"OPP-004",segment:"Pharmacy",source:"Outbound",stage:"Negotiation",value:1500000,prob:80},
+ {id:"OPP-005",segment:"Education",source:"Partner",stage:"Lead",value:500000,prob:10},
+ {id:"OPP-006",segment:"Retail",source:"Inbound",stage:"Closed Won",value:620000,prob:100},
+ {id:"OPP-007",segment:"Apparel",source:"Referral",stage:"Closed Lost",value:430000,prob:0},
+ {id:"OPP-008",segment:"Hardware",source:"Event",stage:"Proposal",value:980000,prob:55},
+ {id:"OPP-009",segment:"Distribution",source:"Outbound",stage:"Qualified",value:1100000,prob:25},
+ {id:"OPP-010",segment:"Manufacturing",source:"Website",stage:"Discovery",value:850000,prob:40},
+ {id:"OPP-011",segment:"Education",source:"Partner",stage:"Negotiation",value:680000,prob:75},
+ {id:"OPP-012",segment:"Retail",source:"Inbound",stage:"Closed Won",value:1020000,prob:100}
+];
+const closed = s => s==="Closed Won" || s==="Closed Lost";
+const fmt = n => "৳"+Math.round(n).toLocaleString("en-BD");
+const unique = xs => [...new Set(xs)].sort();
+const $ = id => document.getElementById(id);
+function fillSelect(id, values){
+ const el=$(id); values.forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=v;el.appendChild(o);});
+}
+fillSelect("segment",unique(opportunities.map(o=>o.segment)));
+fillSelect("source",unique(opportunities.map(o=>o.source)));
+function filtered(){
+ const seg=$("segment").value, src=$("source").value, q=$("search").value.toLowerCase().trim();
+ return opportunities.filter(o=>(seg==="all"||o.segment===seg)&&(src==="all"||o.source===src)&&(!q||(o.id+" "+o.segment+" "+o.stage).toLowerCase().includes(q)));
+}
+function render(){
+ const rows=filtered(), open=rows.filter(o=>!closed(o.stage)), won=rows.filter(o=>o.stage==="Closed Won"), closedRows=rows.filter(o=>closed(o.stage));
+ const openValue=open.reduce((s,o)=>s+o.value,0), weighted=open.reduce((s,o)=>s+o.value*o.prob/100,0), wonValue=won.reduce((s,o)=>s+o.value,0);
+ $("openValue").textContent=fmt(openValue);$("weightedValue").textContent=fmt(weighted);$("wonValue").textContent=fmt(wonValue);
+ $("winRate").textContent=(closedRows.length?100*won.length/closedRows.length:0).toFixed(1)+"%";
+ $("oppCount").textContent=rows.length+" opportunities · "+open.length+" open";
+ const stages={};open.forEach(o=>stages[o.stage]=(stages[o.stage]||0)+o.value*o.prob/100);
+ const max=Math.max(1,...Object.values(stages));
+ $("stageChart").innerHTML=Object.entries(stages).sort((a,b)=>b[1]-a[1]).map(([s,v])=>'<div class="chartrow"><span>'+s+'</span><div class="bar"><div class="fill" style="width:'+(v/max*100)+'%"></div></div><span class="chartvalue">'+fmt(v)+'</span></div>').join("")||'<p class="hint">No open opportunities match these filters.</p>';
+ const referral=open.filter(o=>o.source==="Referral").length, negotiations=open.filter(o=>o.stage==="Negotiation").length;
+ const cards=[
+  ["Funnel review", "Compare qualification and proposal progression by source; the current dataset is too small for firm conclusions."],
+  ["Execution focus", open.length+" open opportunities remain in the filtered view. Validate owner, next action and stage aging in a real CRM."],
+  ["Forecast control", fmt(weighted)+" is probability-weighted pipeline only; keep bookings, invoices, margin and collected cash separate."]
+ ];
+ if(referral>0)cards.push(["Source mix",referral+" open opportunities in this view came from referrals; validate lead quality and conversion by cohort."]);
+ $("insights").innerHTML=cards.slice(0,4).map(c=>'<div class="insight"><span class="dot"></span><div><b>'+c[0]+'</b><p>'+c[1]+'</p></div></div>').join("");
+ $("tableBody").innerHTML=rows.map(o=>'<tr><td>'+o.id+'</td><td>'+o.segment+'</td><td>'+o.source+'</td><td><span class="pill">'+o.stage+'</span></td><td>'+o.prob+'%</td><td class="num">'+fmt(o.value)+'</td><td class="num">'+fmt(o.value*o.prob/100)+'</td></tr>').join("")||'<tr><td colspan="7">No records match the selected filters.</td></tr>';
+}
+["segment","source","search"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",render));
+render();
+</script>
+</body>
+</html>
