@@ -1,6 +1,8 @@
 # MD. Labib Rahman
 ### Business Analysis · Solution Architecture · Product Strategy
 
+[![Revenue model checks](https://github.com/GUCHCHO/Md.Labib-Rahman/actions/workflows/revenue-model-tests.yml/badge.svg)](https://github.com/GUCHCHO/Md.Labib-Rahman/actions/workflows/revenue-model-tests.yml)
+
 I work at the intersection of business operations and technology: understanding business problems, turning them into structured requirements, aligning stakeholders and technical teams, and evaluating how software can improve visibility, productivity, revenue operations and scalability.
 
 My experience spans **SaaS business development, enterprise IT systems, workflow automation, data analysis and technical coordination**. I am building a portfolio around practical business analysis and solution design, with clear assumptions, measurable KPIs, traceable requirements and implementation-ready artifacts.
@@ -23,11 +25,13 @@ An end-to-end, fictional case study showing how a growing multi-branch business 
 - Logical solution architecture, system-of-record decisions and integration patterns
 - Domain model, data dictionary and illustrative API contracts
 - KPI definitions, synthetic pipeline dataset, SQL queries and Python analysis
+- Product brief, monetization hypotheses, product roadmap and growth experiments
 - Phased delivery roadmap, risk register, dependencies and UAT test plan
 - Responsive interactive dashboard prototype using synthetic sample data
+- Automated Python unit tests and GitHub Actions CI workflow
 - AI-assisted productivity and responsible data-handling guidance
 
-**Explore key artifacts:** [Requirements](projects/sme-revenue-operations-blueprint/docs/03-requirements-and-user-stories.md) · [Process Design](projects/sme-revenue-operations-blueprint/docs/04-process-design.md) · [Architecture](projects/sme-revenue-operations-blueprint/docs/05-solution-architecture.md) · [Revenue KPI Model](projects/sme-revenue-operations-blueprint/docs/07-revenue-kpi-model.md) · [UAT Plan](projects/sme-revenue-operations-blueprint/docs/09-uat-test-plan.md) · [Dashboard Prototype](projects/sme-revenue-operations-blueprint/demo/index.html)
+**Explore key artifacts:** [Requirements](projects/sme-revenue-operations-blueprint/docs/03-requirements-and-user-stories.md) · [Process Design](projects/sme-revenue-operations-blueprint/docs/04-process-design.md) · [Architecture](projects/sme-revenue-operations-blueprint/docs/05-solution-architecture.md) · [Product & Growth Plan](projects/sme-revenue-operations-blueprint/docs/12-product-brief-growth-plan.md) · [Revenue KPI Model](projects/sme-revenue-operations-blueprint/docs/07-revenue-kpi-model.md) · [UAT Plan](projects/sme-revenue-operations-blueprint/docs/09-uat-test-plan.md) · [Dashboard Prototype](projects/sme-revenue-operations-blueprint/demo/index.html)
 
 > **Integrity note:** This portfolio simulation uses fictional business context and synthetic data. Targets and scenarios are hypotheses, not claims of client results or a live implementation.
 
