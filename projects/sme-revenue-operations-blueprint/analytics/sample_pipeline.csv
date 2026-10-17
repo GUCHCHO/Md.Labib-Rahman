@@ -1,0 +1,13 @@
+opportunity_id,segment,source,stage,deal_value_bdt,probability_pct,days_in_stage,owner,next_action_date
+OPP-001,Retail,Referral,Qualified,900000,20,5,BD-01,2026-11-01
+OPP-002,Distribution,Inbound,Discovery,1200000,35,8,BD-02,2026-10-27
+OPP-003,Furniture,Referral,Proposal,750000,60,10,BD-01,2026-10-25
+OPP-004,Pharmacy,Outbound,Negotiation,1500000,80,12,BD-03,2026-10-22
+OPP-005,Education,Partner,Lead,500000,10,2,BD-02,2026-11-03
+OPP-006,Retail,Inbound,Closed Won,620000,100,0,BD-01,2026-10-10
+OPP-007,Apparel,Referral,Closed Lost,430000,0,0,BD-02,2026-10-11
+OPP-008,Hardware,Event,Proposal,980000,55,16,BD-03,2026-10-28
+OPP-009,Distribution,Outbound,Qualified,1100000,25,9,BD-01,2026-11-05
+OPP-010,Manufacturing,Website,Discovery,850000,40,6,BD-03,2026-10-30
+OPP-011,Education,Partner,Negotiation,680000,75,15,BD-02,2026-10-26
+OPP-012,Retail,Inbound,Closed Won,1020000,100,0,BD-03,2026-10-13
