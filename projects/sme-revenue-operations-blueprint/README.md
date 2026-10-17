@@ -31,10 +31,12 @@ The following are **hypotheses and illustrative targets**, not measured results:
 | Solution architecture | Context, system boundaries, integrations, security and scalability |
 | Domain model and API contracts | Core entities, identifiers, ownership and integration contracts |
 | Revenue KPI model | Funnel mathematics, weighted pipeline, illustrative scenario |
+| Product brief and growth plan | Personas, MVP, pricing hypotheses, metric tree, growth experiments |
 | Roadmap and risk register | Delivery sequencing, dependencies, mitigations and governance |
-| UAT plan | Traceable validation scenarios and release criteria |
+| UAT and architecture decisions | Acceptance tests, release gates and architecture trade-offs |
 | AI governance | Safe AI-assisted research and documentation practices |
-| SQL and Python | Reproducible analysis on synthetic opportunity data |
+| Dashboard prototype | Responsive, filterable UI using synthetic opportunity data |
+| SQL, Python and tests | Reproducible KPI queries, analysis utility and unit tests |
 
 ## Architecture at a glance
 
@@ -62,16 +64,24 @@ flowchart LR
 8. [Roadmap, risks and dependencies](docs/08-roadmap-risks.md)
 9. [UAT and acceptance plan](docs/09-uat-test-plan.md)
 10. [AI-assisted productivity and governance](docs/10-ai-governance.md)
-11. [Synthetic opportunity dataset](analytics/sample_pipeline.csv)
-12. [SQL KPI queries](analytics/sql/revenue_kpi_queries.sql)
-13. [Python pipeline calculator](analytics/revenue_model.py)
+11. [Architecture decision records](docs/11-architecture-decision-records.md)
+12. [Product brief and growth experiments](docs/12-product-brief-growth-plan.md)
+13. [Interactive dashboard prototype](demo/index.html)
+14. [Synthetic opportunity dataset](analytics/sample_pipeline.csv)
+15. [Data dictionary](analytics/DATA_DICTIONARY.md)
+16. [SQL KPI queries](analytics/sql/revenue_kpi_queries.sql)
+17. [Python pipeline calculator](analytics/revenue_model.py)
+18. [Unit tests](analytics/test_revenue_model.py)
 
 ## Run the analysis
 
 Requires Python 3.9+; the script uses only the Python standard library.
 
+From this project directory:
+
 ~~~bash
 python analytics/revenue_model.py
+python -m unittest discover -s analytics -p "test_*.py" -v
 ~~~
 
 Or pass a different CSV file with the same columns:
@@ -79,6 +89,8 @@ Or pass a different CSV file with the same columns:
 ~~~bash
 python analytics/revenue_model.py --input analytics/sample_pipeline.csv
 ~~~
+
+The interactive dashboard is a static HTML prototype: open [demo/index.html](demo/index.html) in any modern browser. It requires no build tooling or backend.
 
 ## Decision principles
 
@@ -91,4 +103,4 @@ python analytics/revenue_model.py --input analytics/sample_pipeline.csv
 
 ## Suggested next iteration
 
-Add a small dashboard, automated tests for the Python model, and a clickable workflow prototype. In a real engagement, validate assumptions through discovery, baseline the current process, obtain data-owner approval, and only then set committed targets.
+Connect the prototype to a small API, add UI and API integration tests, perform a threat model and validate architecture assumptions with a representative user group. In a real engagement, confirm the baseline, obtain data-owner approval and agree success metrics before committing delivery targets.
